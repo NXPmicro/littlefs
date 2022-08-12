@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SDK_2.x_middleware_christopher_haster_littlefs_MIMXRT685S_manifest_v3_10" name="LittleFS" brief="LittleFS filesystem stack" format_version="3.10" api_version="2.0.0" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.10.xsd">
+  <!--Timestamp (UTC): 2022-08-11 15:01:07.312361-->
+  <!--This manifest is generated based on sdk repo commit: 7fb442914f92023b395b260777eb2355254fd71d-->
+  <externalDefinitions>
+    <definition extID="MIMXRT685S"/>
+    <definition extID="cm33_MIMXRT685S"/>
+    <definition extID="armgcc"/>
+  </externalDefinitions>
+  <ksdk id="MCUXpressoSDK2120_middleware_christopher_haster_littlefs_MIMXRT685S_manifest_v3_10" name="MCUXpressoSDK2120_middleware_christopher_haster_littlefs_MIMXRT685S_manifest_v3_10" version="2.12.0"/>
+  <components>
+    <component id="middleware.littlefs.MIMXRT685S" name="LittleFS" brief="littlefs" version="2.4.1" full_name="LittleFS File System stack" devices="MIMXRT685S" category="File System/LittleFS File System" user_visible="true" type="middleware" package_base_path="./" project_base_path="littlefs">
+      <source relative_path="./" type="src">
+        <files mask="lfs.c"/>
+        <files mask="lfs_util.c"/>
+      </source>
+      <source relative_path="./" type="c_include">
+        <files mask="lfs.h"/>
+        <files mask="lfs_util.h"/>
+      </source>
+      <source exclude="true" relative_path="./" type="doc">
+        <files mask="ChangeLogKSDK.txt" hidden="true"/>
+      </source>
+      <source toolchain="armgcc" relative_path="./" project_relative_path="." type="workspace" device_cores="cm33_MIMXRT685S">
+        <files mask="middleware_littlefs_MIMXRT685S_cm33.cmake" hidden="true"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="./" type="c_include"/>
+      </include_paths>
+    </component>
+    <component id="middleware.littlefs.unused_files.MIMXRT685S" name="unused_files" brief="littlefs files unused by projects" version="2.4.1" full_name="Middleware littlefs unused_files" devices="MIMXRT685S" user_visible="false" type="other" package_base_path="./" project_base_path="littlefs">
+      <source exclude="true" relative_path="./" type="other">
+        <files mask="DESIGN.md" hidden="true"/>
+        <files mask="LICENSE.md" hidden="true"/>
+        <files mask="README.md" hidden="true"/>
+        <files mask="SPEC.md" hidden="true"/>
+      </source>
+    </component>
+  </components>
+</ksdk:manifest>
