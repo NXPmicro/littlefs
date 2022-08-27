@@ -192,6 +192,12 @@ code = '''
         char path[1024];
         sprintf(path, "hi%03d", i);
         err = lfs_mkdir(&lfs, path);
+        if (!(err == 0 || err == LFS_ERR_EXIST)) {
+            char x[1024];
+            strcpy(x, "hello");
+            x[1] = 'b';
+            assert(memcmp(x, "hello", strlen("hello")) == 0);
+        }
         assert(err == 0 || err == LFS_ERR_EXIST);
     }
 
