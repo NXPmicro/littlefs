@@ -81,6 +81,9 @@ littlefs_shell:
       - boards/${board}/littlefs_examples/littlefs_shell/board.readme
       - middleware/littlefs/example/littlefs_shell/littlefs_shell.readme
       category: littlefs_examples
+      product:
+        cmsis_pack:
+          supported: false
     project-root-path: boards/${board}/littlefs_examples/littlefs_shell/${multicore_foldername}
     configuration:
       tools:
