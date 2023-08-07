@@ -1,0 +1,136 @@
+---
+middleware.littlefs:
+  section-type: component
+  contents:
+    repo_base_path: middleware/littlefs
+    project_base_path: littlefs
+    cc-include:
+    - repo_relative_path: "./"
+      project_relative_path: "./"
+      package_relative_path: "./"
+    files:
+    - source: middleware/littlefs/lfs.c
+      repo_relative_path: "./"
+      project_relative_path: "./"
+      package_relative_path: "./"
+      type: src
+    - source: middleware/littlefs/lfs_util.c
+      repo_relative_path: "./"
+      project_relative_path: "./"
+      package_relative_path: "./"
+      type: src
+    - source: middleware/littlefs/lfs.h
+      repo_relative_path: "./"
+      project_relative_path: "./"
+      package_relative_path: "./"
+      type: c_include
+    - source: middleware/littlefs/lfs_util.h
+      repo_relative_path: "./"
+      project_relative_path: "./"
+      package_relative_path: "./"
+      type: c_include
+    - source: middleware/littlefs/ChangeLogKSDK.txt
+      hidden: true
+      exclude: true
+      repo_relative_path: "./"
+      project_relative_path: "./"
+      package_relative_path: "./"
+      type: doc
+    - source: middleware/littlefs/middleware_littlefs.cmake
+      type: workspace
+      toolchains: armgcc
+      hidden: true
+    package_base_path: middleware/littlefs
+  belong_to: set.middleware.littlefs
+  section_info:
+    description: littlefs
+    version: 2.5.0
+    type: middleware
+    full_name: LittleFS File System stack
+    user_visible: always
+    taxonomy:
+      csub: littlefs
+      cclass: File System
+      cgroup: LittleFS File System
+    display_name: LittleFS
+    vendor: NXP
+  meta-name: middleware.littlefs
+  cmake_module_name: middleware_littlefs
+container.littlefs:
+  section-type: container
+  contents:
+    repo_base_path: middleware/littlefs
+    files:
+    - source: middleware/littlefs/littlefs.txt
+    - source: middleware/littlefs/DESIGN.md
+    - source: middleware/littlefs/LICENSE.md
+    - source: middleware/littlefs/README.md
+    - source: middleware/littlefs/SPEC.md
+    package_base_path: middleware/littlefs
+  belong_to: set.middleware.littlefs
+set.middleware.littlefs:
+  section-type: set
+  belong_to: set.middleware.littlefs
+  contents:
+    repo_base_path: middleware/littlefs
+    files:
+    - source: middleware/littlefs/ChangeLogKSDK.txt
+      type: changelog
+    package_base_path: middleware/littlefs
+  section_info:
+    fixed_id: christopher_haster_littlefs
+    description: LittleFS filesystem stack
+    version: 2.5.0
+    type: middleware
+    full_name: LittleFS File System stack
+    display_name: LittleFS
+    set_location:
+      repo_base_path: middleware/littlefs
+    vendor: NXP
+    product:
+      kex_package:
+        kex_web_ui:
+          ui_control: true
+          ui_release_specific: true
+          ui_control_default: true
+          ui_category: Middleware
+        scr:
+        - scr.middleware.littlefs
+      cmsis_pack:
+        vendor: NXP
+        pack_root:
+          pack_type: SWP
+          pack_name: LITTLEFS
+          pack_version: 1.0.0
+        scr:
+        - scr.middleware.littlefs
+    component_taxonomy:
+      littlefs:
+        cclass: File System
+        cgroup: LittleFS File System
+license.littlefs:
+  section-type: license
+  belong_to: set.middleware.littlefs
+  contents:
+    repo_base_path: middleware/littlefs
+    files:
+    - source: middleware/littlefs/LICENSE.md
+    package_base_path: middleware/littlefs
+  section_info:
+    Outgoing License: BSD-3-Clause
+scr.middleware.littlefs:
+  belong_to: set.middleware.littlefs
+  section-type: scr
+  contents:
+    license:
+    - license.littlefs
+    Name: LittleFS
+    Version: 2.5.0
+    Format: source code
+    Description: LittleFS - A little fail-safe filesystem designed for microcontrollers
+    Location: middleware/littlefs
+    Origin: Christopher Haster (https://github.com/geky/)
+    Url: https://github.com/littlefs-project/littlefs
+  dependency:
+    allOf:
+    - middleware.littlefs
