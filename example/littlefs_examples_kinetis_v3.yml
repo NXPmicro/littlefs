@@ -93,12 +93,18 @@ littlefs_shell:
             sdram_release:
               cc-define:
                 LFS_NO_ASSERT: 
+            hyperram_release:
+              cc-define:
+                LFS_NO_ASSERT: 
         iar:
           config:
             release:
               cc-define:
                 LFS_NO_ASSERT: 
             sdram_release:
+              cc-define:
+                LFS_NO_ASSERT: 
+            hyperram_release:
               cc-define:
                 LFS_NO_ASSERT: 
         mcux:
