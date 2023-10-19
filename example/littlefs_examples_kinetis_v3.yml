@@ -164,7 +164,7 @@ littlefs_shell_onchip_flash:
       name: littlefs_shell_onchip_flash
       brief: Demonstrates littlefs functionality by commands executed from shell.
       readme:
-      - boards/${board}/littlefs_examples/littlefs_shell/board.readme
+      - boards/${board}/littlefs_examples/littlefs_shell_onchip_flash/board.readme
       - middleware/littlefs/example/littlefs_shell/littlefs_shell.readme
       category: littlefs_examples
     project-root-path: boards/${board}/littlefs_examples/littlefs_shell_onchip_flash/${multicore_foldername}
