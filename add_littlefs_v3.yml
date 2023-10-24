@@ -1,0 +1,104 @@
+# yaml-language-server: $schema=../../bin/generator/sdk_generator/data/sdk_data_schema/v3/software_set_and_project_schema.json
+
+__variable__:
+  littlefs_version: 2.8.0
+
+middleware.littlefs:
+  section-type: component
+  contents:
+    repo_base_path: middleware/littlefs
+    project_base_path: littlefs
+    cc-include:
+    - repo_relative_path: "./"
+    files:
+    - source: lfs.c
+    - source: lfs_util.c
+    - source: lfs.h
+    - source: lfs_util.h
+    - source: ChangeLogKSDK.txt
+      hidden: true
+      exclude: true
+  belong_to: set.middleware.littlefs
+  section_info:
+    description: littlefs
+    version: "${littlefs_version}"
+    type: middleware
+    full_name: LittleFS File System stack
+    user_visible: always
+    taxonomy:
+      csub: littlefs
+      belong_to: littlefs
+    display_name: LittleFS
+
+container.littlefs:
+  section-type: container
+  contents:
+    repo_base_path: middleware/littlefs
+    files:
+    - source: littlefs.txt
+    - source: "*.md"
+  belong_to: set.middleware.littlefs
+
+set.middleware.littlefs:
+  section-type: set
+  belong_to: set.middleware.littlefs
+  contents:
+    repo_base_path: middleware/littlefs
+    files:
+    - source: "./ChangeLogKSDK.txt"
+      type: changelog
+  section_info:
+    fixed_id: christopher_haster_littlefs
+    description: LittleFS filesystem stack
+    version: "${littlefs_version}"
+    type: middleware
+    full_name: LittleFS File System stack
+    display_name: littlefs
+    set_location:
+      repo_base_path: middleware/littlefs
+    vendor: NXP
+    product:
+      kex_package:
+        kex_web_ui:
+          ui_control: true
+          ui_release_specific: true
+          ui_control_default: true
+          ui_category: Middleware
+        scr:
+        - scr.middleware.littlefs
+      cmsis_pack:
+        vendor: NXP
+        supported: false
+        scr:
+        - scr.middleware.littlefs
+    component_taxonomy:
+      littlefs:
+        cclass: File System
+        cgroup: LittleFS File System
+
+license.littlefs:
+  section-type: license
+  belong_to: set.middleware.littlefs
+  contents:
+    repo_base_path: middleware/littlefs
+    files:
+    - source: LICENSE.md
+  section_info:
+    Outgoing License: BSD-3-Clause
+
+scr.middleware.littlefs:
+  belong_to: set.middleware.littlefs
+  section-type: scr
+  contents:
+    license:
+    - license.littlefs
+    Name: LittleFS
+    version: "${littlefs_version}"
+    Format: source code
+    Description: LittleFS - A little fail-safe filesystem designed for microcontrollers
+    Location: middleware/littlefs
+    Origin: Christopher Haster (https://github.com/geky/)
+    Url: https://github.com/littlefs-project/littlefs
+  dependency:
+    allOf:
+    - middleware.littlefs

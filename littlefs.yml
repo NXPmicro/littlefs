@@ -1,0 +1,18 @@
+---
+docs.littlefs:
+  section-type: component
+  meta-name: docs.littlefs
+  component_info:
+    manifest:
+      version: 1.0.0
+      type: documentation
+      full_name: Littlefs documentation
+      description: Littlefs documentation
+      manifest_name: doc_littlefs
+  __requires__:
+  - middleware.littlefs
+  contents:
+    repo_base_path: middleware/littlefs
+    project_base_path: littlefs
+    files:
+    - source: littlefs.txt

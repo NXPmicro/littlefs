@@ -1,0 +1,28 @@
+Overview
+========
+The littlefs_shell demonstrates the capabilities of LittleFS FLASH filesystem:
+
+After the example is loaded into the target and launched the shell prompt is printed to the console.
+Type "help" to obtain list of available commands. The FLASH storage has to be formatted upon first use.
+After mounting the filesystem it is possible to create/delete/list directories and read/write files using appropriate commands.
+There is no concept of current directory in LittleFS, hence it is always necessary to specify full directory path.
+
+List of supported commands:
+  format       Formats the filesystem
+  mount        Mounts the filesystem
+  unmount      Unmounts the filesystem
+  ls           Lists directory content
+  rm           Removes file or directory
+  mkdir        Creates a new directory
+  write        Writes/appends text to a file
+  cat          Prints file content
+
+Example workflow:
+To perform initial format of the storage, issue 'format yes' command.
+Mount the storage by issuing 'mount' command.
+Create new directory by 'mkdir mynewdir'.
+Create new file in the 'mynewdir' directory by writing line of text to it using 'write mynewdir/foo.txt firstline'
+Append another line to the same file using 'write mynewdir/foo.txt secondline'
+Print the content of the file using 'cat mynewdir/foo.txt'. The expected output is:
+  firstline
+  secondline

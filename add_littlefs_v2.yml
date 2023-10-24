@@ -1,0 +1,84 @@
+---
+__load__:
+- middleware/littlefs/littlefs.yml
+
+middleware.littlefs.ui_control:
+  section-type: component_support
+  component_info:
+    common:
+      fixed_id: christopher_haster_littlefs
+      description: littlefs
+      version: 2.8.0
+      type: middleware
+      full_name: LittleFS File System stack
+      change_log: "./ChangeLogKSDK.txt"
+      component_bundle: bundles.littlefs
+      user_visible: true
+      ui_name: littlefs
+      ui_description: LittleFS filesystem stack
+      ui_category: Middleware
+      ui_control: true
+      ui_release_specific: true
+      manifest_name: LittleFS
+      ui_control_default: true
+      component_set_path:
+        repo_base_path: middleware/littlefs
+
+middleware.littlefs:
+  section-type: component
+  __requires__:
+  - middleware.littlefs.ui_control
+  contents:
+    repo_base_path: middleware/littlefs
+    project_base_path: littlefs
+    cc-include:
+    - repo_relative_path: "./"
+    files:
+    - source: lfs.c
+    - source: lfs_util.c
+    - source: lfs.h
+    - source: lfs_util.h
+    - source: ChangeLogKSDK.txt
+      hidden: true
+      exclude: true
+  component_info:
+    common:
+      description: littlefs
+      version: 2.8.0
+      type: middleware
+      full_name: LittleFS File System stack
+      change_log: "./ChangeLogKSDK.txt"
+      component_bundle: bundles.littlefs
+      user_visible: true
+      manifest_name: LittleFS
+
+middleware.littlefs.unused_files:
+  section-type: component
+  __requires__:
+  - middleware.littlefs.ui_control
+  contents:
+    repo_base_path: middleware/littlefs
+    project_base_path: littlefs
+    files:
+    - source: "*.md"
+      hidden: true
+      exclude: true
+  component_info:
+    common:
+      description: littlefs files unused by projects
+      version: 2.8.0
+      type: other
+      change_log: "./ChangeLogKSDK.txt"
+      user_visible: false
+      manifest_name: unused_files
+      full_name: Middleware littlefs unused_files
+bundles.littlefs:
+  section-type: component_support
+  bundle: true
+  contents: {}
+  component_info:
+    common:
+      full_name: LittleFS File System
+      class: File System
+      version: 2.8.0
+      description: LittleFS File System
