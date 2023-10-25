@@ -93,7 +93,7 @@ scr.middleware.littlefs:
     license:
     - license.littlefs
     Name: LittleFS
-    version: "${littlefs_version}"
+    Version: "${littlefs_version}"
     Format: source code
     Description: LittleFS - A little fail-safe filesystem designed for microcontrollers
     Location: middleware/littlefs
