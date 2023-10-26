@@ -68,7 +68,7 @@ set.middleware.littlefs:
         - scr.middleware.littlefs
       cmsis_pack:
         vendor: NXP
-        supported: false
+        supported: true
         scr:
         - scr.middleware.littlefs
     component_taxonomy:
