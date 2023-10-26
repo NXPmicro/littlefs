@@ -71,6 +71,10 @@ set.middleware.littlefs:
         supported: true
         scr:
         - scr.middleware.littlefs
+        pack_root:
+          pack_type: SWP
+          pack_name: LITTLEFS
+          pack_version: 1.0.0
     component_taxonomy:
       littlefs:
         cclass: File System
