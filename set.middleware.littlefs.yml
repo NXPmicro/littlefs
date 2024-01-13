@@ -44,7 +44,7 @@ middleware.littlefs:
   belong_to: set.middleware.littlefs
   section_info:
     description: littlefs
-    version: 2.5.0
+    version: 2.8.0
     type: middleware
     full_name: LittleFS File System stack
     user_visible: always
@@ -74,13 +74,13 @@ set.middleware.littlefs:
   contents:
     repo_base_path: middleware/littlefs
     files:
-    - source: middleware/littlefs/ChangeLogKSDK.txt
+    - source: middleware/littlefs/./ChangeLogKSDK.txt
       type: changelog
     package_base_path: middleware/littlefs
   section_info:
     fixed_id: christopher_haster_littlefs
     description: LittleFS filesystem stack
-    version: 2.5.0
+    version: 2.8.0
     type: middleware
     full_name: LittleFS File System stack
     display_name: LittleFS
@@ -98,12 +98,13 @@ set.middleware.littlefs:
         - scr.middleware.littlefs
       cmsis_pack:
         vendor: NXP
+        supported: true
+        scr:
+        - scr.middleware.littlefs
         pack_root:
           pack_type: SWP
           pack_name: LITTLEFS
           pack_version: 1.0.0
-        scr:
-        - scr.middleware.littlefs
     component_taxonomy:
       littlefs:
         cclass: File System
@@ -125,7 +126,7 @@ scr.middleware.littlefs:
     license:
     - license.littlefs
     Name: LittleFS
-    Version: 2.5.0
+    Version: 2.8.0
     Format: source code
     Description: LittleFS - A little fail-safe filesystem designed for microcontrollers
     Location: middleware/littlefs
