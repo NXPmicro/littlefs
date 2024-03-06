@@ -1645,11 +1645,11 @@ static int lfs_dir_commitcrc(lfs_t *lfs, struct lfs_commit *commit) {
         if (noff >= end && noff <= lfs->cfg->block_size - lfs->cfg->prog_size) {
             // first read the leading byte, this always contains a bit
             // we can perturb to avoid writes that don't change the fcrc
-            int read_err = lfs_bd_read(lfs,
+            int err = lfs_bd_read(lfs,
                     NULL, &lfs->rcache, lfs->cfg->prog_size,
                     commit->block, noff, &eperturb, 1);
-            if (read_err && read_err != LFS_ERR_CORRUPT) {
-                return read_err;
+            if (err && err != LFS_ERR_CORRUPT) {
+                return err;
             }
 
         #ifdef LFS_MULTIVERSION
@@ -1666,19 +1666,19 @@ static int lfs_dir_commitcrc(lfs_t *lfs, struct lfs_commit *commit) {
                     .size = lfs->cfg->prog_size,
                     .crc = 0xffffffff
                 };
-                int fcrc_err = lfs_bd_crc(lfs,
+                err = lfs_bd_crc(lfs,
                         NULL, &lfs->rcache, lfs->cfg->prog_size,
                         commit->block, noff, fcrc.size, &fcrc.crc);
-                if (fcrc_err && fcrc_err != LFS_ERR_CORRUPT) {
-                    return fcrc_err;
+                if (err && err != LFS_ERR_CORRUPT) {
+                    return err;
                 }
 
                 lfs_fcrc_tole32(&fcrc);
-                int commit_err = lfs_dir_commitattr(lfs, commit,
+                err = lfs_dir_commitattr(lfs, commit,
                         LFS_MKTAG(LFS_TYPE_FCRC, 0x3ff, sizeof(struct lfs_fcrc)),
                         &fcrc);
-                if (commit_err) {
-                    return commit_err;
+                if (err) {
+                    return err;
                 }
             }
         }
@@ -1695,11 +1695,11 @@ static int lfs_dir_commitcrc(lfs_t *lfs, struct lfs_commit *commit) {
         commit->crc = lfs_crc(commit->crc, &ccrc.tag, sizeof(lfs_tag_t));
         ccrc.crc = lfs_tole32(commit->crc);
 
-        int prog_err = lfs_bd_prog(lfs,
+        int err = lfs_bd_prog(lfs,
                 &lfs->pcache, &lfs->rcache, false,
                 commit->block, commit->off, &ccrc, sizeof(ccrc));
-        if (prog_err) {
-            return prog_err;
+        if (err) {
+            return err;
         }
 
         // keep track of non-padding checksum to verify
@@ -1718,9 +1718,9 @@ static int lfs_dir_commitcrc(lfs_t *lfs, struct lfs_commit *commit) {
         // the caching layer
         if (noff >= end || noff >= lfs->pcache.off + lfs->cfg->cache_size) {
             // flush buffers
-            int sync_err = lfs_bd_sync(lfs, &lfs->pcache, &lfs->rcache, false);
-            if (sync_err) {
-                return sync_err;
+            int err = lfs_bd_sync(lfs, &lfs->pcache, &lfs->rcache, false);
+            if (err) {
+                return err;
             }
         }
     }
@@ -1731,11 +1731,11 @@ static int lfs_dir_commitcrc(lfs_t *lfs, struct lfs_commit *commit) {
     // case if they are corrupted we would have had to compact anyways
     lfs_off_t off = commit->begin;
     uint32_t crc = 0xffffffff;
-    int bdcrc_err = lfs_bd_crc(lfs,
+    int err = lfs_bd_crc(lfs,
             NULL, &lfs->rcache, off1+sizeof(uint32_t),
             commit->block, off, off1-off, &crc);
-    if (bdcrc_err) {
-        return bdcrc_err;
+    if (err) {
+        return err;
     }
 
     // check non-padding commits against known crc
@@ -1745,11 +1745,11 @@ static int lfs_dir_commitcrc(lfs_t *lfs, struct lfs_commit *commit) {
 
     // make sure to check crc in case we happen to pick
     // up an unrelated crc (frozen block?)
-    int bdcrc2_err = lfs_bd_crc(lfs,
+    err = lfs_bd_crc(lfs,
             NULL, &lfs->rcache, sizeof(uint32_t),
             commit->block, off1, sizeof(uint32_t), &crc);
-    if (bdcrc2_err) {
-        return bdcrc2_err;
+    if (err) {
+        return err;
     }
 
     if (crc != 0) {
