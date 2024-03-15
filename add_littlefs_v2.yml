@@ -8,7 +8,7 @@ middleware.littlefs.ui_control:
     common:
       fixed_id: christopher_haster_littlefs
       description: littlefs
-      version: 2.8.0
+      version: 2.9.1
       type: middleware
       full_name: LittleFS File System stack
       change_log: "./ChangeLogKSDK.txt"
@@ -44,7 +44,7 @@ middleware.littlefs:
   component_info:
     common:
       description: littlefs
-      version: 2.8.0
+      version: 2.9.1
       type: middleware
       full_name: LittleFS File System stack
       change_log: "./ChangeLogKSDK.txt"
@@ -66,7 +66,7 @@ middleware.littlefs.unused_files:
   component_info:
     common:
       description: littlefs files unused by projects
-      version: 2.8.0
+      version: 2.9.1
       type: other
       change_log: "./ChangeLogKSDK.txt"
       user_visible: false
@@ -80,5 +80,5 @@ bundles.littlefs:
     common:
       full_name: LittleFS File System
       class: File System
-      version: 2.8.0
+      version: 2.9.1
       description: LittleFS File System
