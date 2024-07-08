@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SDK_2.x_middleware_christopher_haster_littlefs_K32W1480_manifest_v3_14" name="LittleFS" brief="LittleFS filesystem stack" format_version="3.14" api_version="2.0.0" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.14.xsd">
+
+  <externalDefinitions>
+    <definition extID="K32W1480xxxA"/>
+    <definition extID="armgcc"/>
+  </externalDefinitions>
+  <ksdk id="MCUXpressoSDK216000_middleware_christopher_haster_littlefs_K32W1480_manifest_v3_14" name="MCUXpressoSDK216000_middleware_christopher_haster_littlefs_K32W1480_manifest_v3_14" version="2.16.000" revision="2.16.000"/>
+  <components>
+    <component id="middleware.littlefs.K32W1480" name="LittleFS" brief="littlefs" version="2.9.1" full_name="LittleFS File System stack" category="File System/LittleFS File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="littlefs">
+      <dependencies>
+        <device_dependency value="K32W1480xxxA"/>
+      </dependencies>
+      <source relative_path="./" type="src">
+        <files mask="lfs.c"/>
+        <files mask="lfs_util.c"/>
+      </source>
+      <source relative_path="./" type="c_include">
+        <files mask="lfs.h"/>
+        <files mask="lfs_util.h"/>
+      </source>
+      <source exclude="true" relative_path="./" type="doc">
+        <files mask="ChangeLogKSDK.txt" hidden="true"/>
+      </source>
+      <source toolchain="armgcc" relative_path="./" type="workspace">
+        <files mask="middleware_littlefs.cmake" hidden="true"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="./" type="c_include"/>
+      </include_paths>
+    </component>
+  </components>
+</ksdk:manifest>

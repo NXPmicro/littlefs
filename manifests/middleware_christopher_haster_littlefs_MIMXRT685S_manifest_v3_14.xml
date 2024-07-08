@@ -5,9 +5,9 @@
     <definition extID="MIMXRT685S"/>
     <definition extID="armgcc"/>
   </externalDefinitions>
-  <ksdk id="MCUXpressoSDK2150_middleware_christopher_haster_littlefs_MIMXRT685S_manifest_v3_14" name="MCUXpressoSDK2150_middleware_christopher_haster_littlefs_MIMXRT685S_manifest_v3_14" version="2.15.0" revision="2.15.0"/>
+  <ksdk id="MCUXpressoSDK216000_middleware_christopher_haster_littlefs_MIMXRT685S_manifest_v3_14" name="MCUXpressoSDK216000_middleware_christopher_haster_littlefs_MIMXRT685S_manifest_v3_14" version="2.16.000" revision="2.16.000"/>
   <components>
-    <component id="middleware.littlefs.MIMXRT685S" name="LittleFS" brief="littlefs" version="2.8.0" full_name="LittleFS File System stack" category="File System/LittleFS File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="littlefs">
+    <component id="middleware.littlefs.MIMXRT685S" name="LittleFS" brief="littlefs" version="2.9.1" full_name="LittleFS File System stack" category="File System/LittleFS File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="littlefs">
       <dependencies>
         <device_dependency value="MIMXRT685S"/>
       </dependencies>
