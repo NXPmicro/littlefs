@@ -3,12 +3,3 @@ menuconfig MCUX_COMPONENT_middleware.littlefs
     default n
     help
         This option will enable LittleFS Middleware component
-
-#    config MCUX_MISC_middleware.littlefs_generate_config
-#        bool "Generate LittleFS configuration header"
-#        depends on MCUX_COMPONENT_middleware.fatfs
-#        select MCUX_COMPONENT_middleware.fatfs.template
-#        default y
-#        help
-#            Generate the ffconf.h, otherwise users need to provide their
-#            own ffconf.h.
