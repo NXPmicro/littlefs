@@ -149,7 +149,7 @@ static shell_status_t lfs_ls_handler(shell_handle_t shellHandle, int32_t argc, c
 {
     int res;
     char *path;
-    lfs_dir_t dir;
+    lfs_dir_t dir = {0};
     struct lfs_info info;
     int files;
     int dirs;
