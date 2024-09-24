@@ -5,7 +5,7 @@
     <definition extID="MCXN236"/>
     <definition extID="armgcc"/>
   </externalDefinitions>
-  <ksdk id="MCUXpressoSDK216000_middleware_christopher_haster_littlefs_MCXN236_manifest_v3_14" name="MCUXpressoSDK216000_middleware_christopher_haster_littlefs_MCXN236_manifest_v3_14" version="2.16.000" revision="2.16.000"/>
+  <ksdk id="MCUXpressoSDK216100_middleware_christopher_haster_littlefs_MCXN236_manifest_v3_14" name="MCUXpressoSDK216100_middleware_christopher_haster_littlefs_MCXN236_manifest_v3_14" version="2.16.100" revision="2.16.100"/>
   <components>
     <component id="middleware.littlefs.MCXN236" name="LittleFS" brief="littlefs" version="2.9.1" full_name="LittleFS File System stack" category="File System/LittleFS File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="littlefs">
       <dependencies>
